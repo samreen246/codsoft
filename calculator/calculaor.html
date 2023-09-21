@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="section">
+        <div class="sub-section"></div>
+        <div class="sub-section1">
+            <div class="box">
+                <div class="screen" id="screen"></div>
+                <div class="screen2 screen" id="screen2" style="color: white;">0</div>
+                <div class="grid-container">
+                    <button class="grid-item" onclick="allclear()" style="background-color:rgb(167, 30, 167);">AC</button>
+                    <button class="grid-item" onclick="delt()">DE</button>
+                    <button class="grid-item" id="mod" onclick="operator('mod')">%</button>
+                    <button class="grid-item" id="div" onclick="operator('div')">/</button>
+
+                    <button class="grid-item" id="seven" onclick="num('seven')">7</button>
+                    <button class="grid-item" id="eight" onclick="num('eight')">8</button>
+                    <button class="grid-item" id="nine" onclick="num('nine')">9</button>
+                    <button class="grid-item" id="multi" onclick="operator('multi')">*</button>
+
+                    <button class="grid-item" id="four" onclick="num('four')">4</button>
+                    <button class="grid-item" id="five" onclick="num('five')">5</button>
+                    <button class="grid-item" id="six" onclick="num('six')">6</button>
+                    <button class="grid-item" id="sub" onclick="operator('sub')">-</button>
+
+                    <button class="grid-item" id="one" onclick="num('one')">1</button>
+                    <button class="grid-item" id="two" onclick="num('two')">2</button>
+                    <button class="grid-item" id="three" onclick="num('three')">3</button>
+                    <button class="grid-item" id="add" onclick="operator('add')">+</button>
+
+    
+                    <button class="grid-item" id="zero" onclick="num('zero')">0</button>
+                    <button class="grid-item" id="ans" onclick="ans()">Ans</button>
+                    <button class="grid-item" id="decimal" onclick="num('decimal')">.</button>
+                    <button class="grid-item" onclick="calculate()" style="background-color:rgb(167, 30, 167);">=</button>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="sub-section"></div>
+    </div>
+
+    <script>
+        function num(mynum){
+            var a=document.getElementById(mynum).innerHTML
+            document.getElementById('screen').innerHTML+=a
+            
+        }
+        
+        function operator(myopr){
+            var b=document.getElementById(myopr).innerHTML
+            document.getElementById('screen').innerHTML+=b
+        }
+
+        function calculate(){
+            var x = document.getElementById('screen').innerHTML
+            var y = eval(x);
+            document.getElementById('screen2').innerHTML = y
+        }
+
+        function allclear(){
+            document.getElementById('screen').innerText=' '
+            document.getElementById('screen2').innerText=' '
+        }
+
+        function delt(){
+            var c =document.getElementById('screen').innerHTML
+            c= c.slice(0,-1)
+            document.getElementById('screen').innerText=c
+        }
+
+        function ans(){
+            document.getElementById('screen').innerText=document.getElementById('screen2').innerText
+            document.getElementById('screen2').innerText=0
+        }
+
+    </script>
+    
+</body>
+</html>
